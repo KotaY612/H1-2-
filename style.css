@@ -1,0 +1,283 @@
+:root {
+  color-scheme: dark;
+  --desktop: #07545a;
+  --beige: #c6c4b8;
+  --beige-dark: #77766e;
+  --gray-light: #dfded6;
+  --gray-dark: #343433;
+  --text: #111;
+}
+
+* { box-sizing: border-box; }
+
+html, body { min-height: 100%; margin: 0; }
+
+body {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(117, 111, 91, 0.32), transparent 48%),
+    repeating-linear-gradient(0deg, #4d4a3e 0 2px, #3b3a31 2px 4px);
+  color: var(--text);
+  font-family: "Courier New", "MS Gothic", monospace;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.computer { width: min(1180px, 96vw); }
+
+.monitor-bezel {
+  position: relative;
+  padding: 27px;
+  border: 2px solid #5a594f;
+  border-radius: 10px 10px 5px 5px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.035) 3px 4px),
+    linear-gradient(145deg, #d3d0c2, #9a988e 45%, #c3c0b4);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.7), inset 0 1px 0 #f1efe1, inset 0 -7px 0 rgba(76,75,69,.3);
+}
+
+.screen {
+  position: relative;
+  height: min(650px, 76vh);
+  min-height: 490px;
+  overflow: hidden;
+  border: 5px solid #1c1c1a;
+  background: #063f43;
+  box-shadow: inset 0 0 34px rgba(0, 0, 0, 0.68), inset 0 0 5px #000;
+  animation: crt-hum 7s steps(1, end) infinite;
+}
+
+.screen::before {
+  position: absolute;
+  z-index: 19;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.32) 100%),
+    repeating-linear-gradient(90deg, transparent 0 3px, rgba(0, 0, 0, 0.035) 3px 4px);
+  box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.58);
+}
+
+.screen::after {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.2;
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,.08) 0 1px, transparent 1px 3px);
+  mix-blend-mode: screen;
+}
+
+.login-screen {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background:
+    radial-gradient(ellipse at 50% 38%, rgba(25, 112, 111, 0.45), transparent 55%),
+    #06494c;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.login-panel {
+  position: relative;
+  width: min(520px, 100%);
+  padding: 2rem 2.6rem 1.5rem;
+  border: 2px solid #111;
+  border-radius: 0;
+  background: var(--gray-light);
+  box-shadow: 4px 5px 0 rgba(0,0,0,.45), inset 1px 1px 0 #fff, inset -1px -1px 0 #777;
+}
+
+.school-mark {
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  color: #464640;
+  font-size: 0.6rem;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.school-mark small { color: #8b969c; font-size: 0.52rem; }
+
+.user-badge {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 0.85rem;
+  border: 2px solid #111;
+  border-radius: 0;
+  color: #ddd;
+  background: #555;
+  box-shadow: inset 2px 2px 0 #999, inset -2px -2px 0 #222, 3px 3px 0 #777;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.login-panel h1 {
+  margin: 0;
+  color: #222;
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.login-help {
+  margin: 0.65rem 0 1.2rem;
+  color: #333;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+#login-form { max-width: 330px; margin: auto; }
+#login-form label { display: block; margin-bottom: 0.35rem; color: #222; font-size: 0.72rem; }
+
+.password-row { display: flex; gap: 5px; }
+.password-row input {
+  min-width: 0;
+  flex: 1;
+  height: 32px;
+  padding: 0 0.6rem;
+  border: 2px inset #999;
+  border-radius: 0;
+  color: #202020;
+  background: #fff;
+  outline: none;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+.password-row input:focus { border-color: #555; box-shadow: 0 0 3px #777; }
+.password-row button {
+  width: 35px;
+  border: 2px outset #aaa;
+  border-radius: 0;
+  color: #fff;
+  background: #9e9d95;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.password-row button:hover { background: #bdbbb0; }
+
+.login-error {
+  min-height: 1.1rem;
+  margin: 0.45rem 0 0;
+  color: #7f1717;
+  font-size: 0.7rem;
+  opacity: 0;
+}
+.login-error.is-visible { opacity: 1; }
+.login-status { margin: 1.2rem 0 0; color: #444; font-size: 0.62rem; text-align: center; }
+.login-status span { display: inline-block; width: 7px; height: 7px; margin-right: 4px; border: 1px solid #444; border-radius: 0; background: #333; }
+.copyright { position: absolute; bottom: 18px; color: rgba(235, 246, 255, 0.7); font-size: 0.62rem; }
+
+.desktop-screen, .file-window, .image-window { position: absolute; inset: 0; }
+.desktop-screen { opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+.desktop-wallpaper {
+  position: absolute;
+  inset: 0 0 38px;
+  background:
+    radial-gradient(circle at 38% 45%, rgba(129, 182, 202, 0.38), transparent 35%),
+    radial-gradient(ellipse at 75% 18%, rgba(92, 24, 24, 0.35), transparent 25%),
+    linear-gradient(135deg, #0b5559, #074348 55%, #052f34);
+}
+.desktop-wallpaper::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0.45;
+  background:
+    linear-gradient(115deg, transparent 45%, rgba(193, 220, 225, 0.2) 45.2% 45.8%, transparent 46%),
+    linear-gradient(75deg, transparent 60%, rgba(5, 40, 61, 0.38) 60.2% 60.8%, transparent 61%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 4px);
+}
+.desktop-wallpaper::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0.68;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 8% 73%, transparent 0 2%, rgba(92, 21, 20, .5) 2.2% 2.8%, transparent 3.3%),
+    radial-gradient(circle at 12% 76%, rgba(105, 27, 22, .56) 0 0.35%, transparent .5%),
+    linear-gradient(103deg, transparent 0 13%, rgba(67, 19, 19, .24) 13.2% 13.55%, transparent 13.8%),
+    linear-gradient(168deg, transparent 0 84%, rgba(0,0,0,.4) 84.2% 85%, transparent 85.5%);
+  mix-blend-mode: multiply;
+}
+.desktop-title { position: absolute; top: 15px; left: 21px; color: rgba(255, 255, 255, 0.78); font-size: 0.74rem; text-shadow: 1px 1px #17415b; }
+.desktop-note { position: absolute; right: 17px; bottom: 17px; color: rgba(255,255,255,.48); font-size: .63rem; line-height: 1.55; text-align: right; }
+.desktop-icon { position: absolute; top: 50%; left: 50%; display: grid; gap: 4px; width: 86px; padding: 5px 2px; border: 1px solid transparent; color: white; background: transparent; font-size: 0.7rem; text-shadow: 1px 1px #193f58; transform: translate(-50%, -50%); }
+.desktop-icon:hover, .desktop-icon:focus { border-color: rgba(255,255,255,.45); background: rgba(112, 187, 218, .28); outline: none; }
+.folder-glyph { position: relative; display: block; width: 62px; height: 43px; margin: auto; overflow: hidden; border: 2px solid #9e7c31; border-radius: 2px; background: #806b37; box-shadow: inset 0 2px rgba(255,255,255,.35), 1px 2px 2px rgba(0,0,0,.42); }
+.folder-glyph::before { position: absolute; top: -5px; left: 2px; width: 22px; height: 7px; content: ""; border: 1px solid #9e7c31; border-bottom: 0; border-radius: 2px 2px 0 0; background: #c19c40; }
+.folder-glyph img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: .82; mix-blend-mode: multiply; }
+
+.taskbar { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; height: 38px; border-top: 2px outset #aaa; background: #aaa9a0; box-shadow: 0 -1px 3px rgba(0,0,0,.3); }
+.start-button { width: 104px; height: 32px; margin-left: 3px; border: 2px outset #ddd; border-radius: 0; color: #111; background: #aaa9a0; font-weight: bold; text-align: left; }
+.start-button:hover { filter: brightness(1.15); }
+.windows-logo { display: inline-block; margin: 0 8px; font-size: 1.7rem; line-height: 1; }
+.taskbar-window { height: 28px; margin-left: 7px; padding: 6px 26px; border: 2px inset #999; border-radius: 0; color: #111; background: #c0bfb7; font-size: .68rem; }
+.logout-button { height: 27px; margin-left: auto; padding: 0 10px; border: 2px outset #ddd; border-radius: 0; color: #111; background: #aaa9a0; font-size: .62rem; }
+.logout-button:hover { color: #fff; background: #6d2c2c; }
+.taskbar-clock { padding: 0 14px; color: #111; font-size: .65rem; line-height: 1.1; text-align: center; }
+.taskbar-clock small { font-size: .52rem; }
+
+.file-window, .image-window { top: 5%; right: 7%; bottom: 9%; left: 7%; display: flex; flex-direction: column; border: 1px solid #235680; border-radius: 5px 5px 2px 2px; background: #f6f6f6; box-shadow: 4px 6px 18px rgba(0,0,0,.5); opacity: 0; transform: scale(.97); pointer-events: none; transition: opacity .2s, transform .2s; }
+.window-titlebar { display: flex; align-items: center; justify-content: space-between; height: 29px; padding-left: 9px; color: white; background: #555a5b; font-size: .75rem; text-shadow: 1px 1px #222; }
+.window-controls { display: flex; gap: 2px; padding-right: 4px; }
+.window-controls button { width: 21px; height: 20px; padding: 0; border: 2px outset #aaa; border-radius: 0; color: #111; background: #aaa9a0; font-size: .85rem; line-height: 1; }
+.window-controls button:hover { background: #a33532; }
+.address-bar { height: 30px; padding: 7px 12px; border-bottom: 1px solid #b1b5b8; color: #4d5558; background: #f1f1ef; font-size: .68rem; }
+.file-body { display: flex; min-height: 0; flex: 1; }
+.file-sidebar { width: 178px; padding: 16px 13px; border-right: 1px solid #c5c7c8; color: #194a71; background: linear-gradient(90deg, #dce9f0, #edf3f5); font-size: .67rem; line-height: 1.5; }
+.file-sidebar strong { display: block; margin-bottom: 10px; color: #1c4e73; font-size: .7rem; font-weight: normal; }
+.sidebar-action { display: block; width: 100%; margin: 0 0 7px; padding: 0; border: 0; color: #28618a; background: transparent; font-size: .64rem; text-align: left; }
+.sidebar-action:hover { text-decoration: underline; }
+.file-sidebar hr { border: 0; border-top: 1px solid #c3d0d7; }
+.sidebar-place { display: block; margin: 7px 0; color: #28618a; }
+.file-content { flex: 1; padding: 20px; background: #fff; }
+.file-item { display: grid; gap: 4px; width: 90px; padding: 7px; border: 1px solid transparent; color: #222; background: transparent; font-size: .68rem; }
+.file-item:hover, .file-item:focus { border-color: #b4d0e2; background: #e6f2fc; outline: none; }
+.image-file-icon { display: grid; place-items: center; width: 53px; height: 49px; margin: auto; overflow: hidden; border: 1px solid #888; color: #39749a; background: linear-gradient(135deg, #e4f2ef, #99c1c9); font-size: 2rem; }
+.image-file-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.file-status { height: 23px; padding: 4px 9px; border-top: 1px solid #c5c5c5; color: #5d6569; background: #eeeeec; font-size: .62rem; }
+
+.image-window { top: 8%; right: 12%; bottom: 12%; left: 12%; }
+.image-toolbar { height: 28px; padding: 7px 11px; border-bottom: 1px solid #d1d1d1; color: #505050; background: #f1f1ef; font-size: .65rem; }
+.image-canvas { display: grid; min-height: 0; flex: 1; place-items: center; padding: 14px; overflow: auto; background: #404040; }
+.image-canvas img { max-width: 100%; max-height: 100%; object-fit: contain; box-shadow: 0 1px 9px #111; }
+
+.monitor-stand { width: 210px; height: 55px; margin: 0 auto; border: 1px solid #111; border-top: 0; background: linear-gradient(90deg, #20211e, #4d4e48 48%, #1e1f1c); clip-path: polygon(25% 0, 75% 0, 88% 100%, 12% 100%); }
+.computer-label { margin: 6px 0 0; color: #71716a; font-family: Arial, sans-serif; font-size: .55rem; letter-spacing: .14em; text-align: center; }
+
+body.is-logged-in .login-screen { opacity: 0; transform: scale(1.03); pointer-events: none; }
+body.is-logged-in .desktop-screen { opacity: 1; pointer-events: auto; }
+body.folder-open .file-window { opacity: 1; transform: scale(1); pointer-events: auto; }
+body.folder-open .desktop-screen { filter: blur(1px); }
+body.image-open .image-window { opacity: 1; transform: scale(1); pointer-events: auto; z-index: 4; }
+body.image-open .file-window { filter: blur(1px); }
+
+@keyframes crt-hum {
+  0%, 34%, 36%, 72%, 73%, 100% { filter: none; }
+  35% { filter: brightness(.92) contrast(1.08); }
+  35.5% { filter: brightness(1.06); }
+  72.5% { filter: brightness(.88) sepia(.08); }
+}
+
+@media (max-width: 650px) {
+  .monitor-bezel { padding: 13px; border-radius: 10px; }
+  .screen { min-height: 480px; height: 82vh; }
+  .login-panel { padding: 1.7rem 1.2rem 1.2rem; }
+  .school-mark { top: 9px; right: 10px; }
+  .file-sidebar { width: 125px; padding: 12px 8px; }
+  .file-window { left: 2%; right: 2%; }
+  .image-window { left: 4%; right: 4%; }
+}

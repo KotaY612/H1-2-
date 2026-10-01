@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1d4f73" />
+    <title>校内端末 - システムログオン</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="computer">
+      <div class="monitor-bezel">
+        <div class="screen">
+          <section class="login-screen" aria-labelledby="login-title">
+            <div class="login-panel">
+              <div class="school-mark" aria-hidden="true">SYSTEM LOGIN</div>
+              <div class="user-badge" aria-hidden="true">?</div>
+              <h1 id="login-title">ユーザーにログイン</h1>
+              <p class="login-help">ユーザー名とパスワードを入力してください。</p>
+              <form id="login-form" novalidate>
+                <label for="password">PASSWORD:</label>
+                <div class="password-row">
+                  <input id="password" type="password" autocomplete="current-password" autofocus />
+                  <button type="submit" aria-label="ログイン">→</button>
+                </div>
+                <p id="login-error" class="login-error" role="alert" aria-live="polite">パスワードが正しくありません。</p>
+              </form>
+              <p class="login-status"><span></span> ネットワーク接続無し</p>
+            </div>
+            <p class="copyright">© 1995 School Information System　|　コンピューターの電源を切らないでください</p>
+          </section>
+
+          <section class="desktop-screen" aria-hidden="true" aria-labelledby="desktop-title">
+            <div class="desktop-wallpaper">
+                <div class="desktop-title" id="desktop-title">第三校舎　旧式管理端末 [C:\SCHOOL]</div>
+              <button class="desktop-icon folder-icon" type="button" aria-label="記録フォルダを開く">
+                  <span class="folder-glyph" aria-hidden="true">
+                    <img src="クラス裏会議.png" alt="" />
+                  </span>
+                  <span>記録</span>
+                </button>
+              <div class="desktop-note">最終更新：1995/06/27<br />警告：この端末は廃棄予定です</div>
+            </div>
+            <div class="taskbar">
+              <button class="start-button" type="button" aria-label="スタートメニュー"><span class="windows-logo">⊞</span></button>
+              <div class="taskbar-window">記録 - エクスプローラー</div>
+              <button class="logout-button" type="button">ログアウト</button>
+              <div class="taskbar-clock">23:47<br /><small>1995/06/27</small></div>
+            </div>
+          </section>
+
+          <section class="file-window" aria-hidden="true" aria-labelledby="file-title">
+            <header class="window-titlebar">
+              <span id="file-title">記録 - エクスプローラー</span>
+              <div class="window-controls"><button type="button" aria-label="最小化">−</button><button type="button" aria-label="閉じる">×</button></div>
+            </header>
+            <div class="address-bar"><span>▸</span> コンピューター　&gt;　記録</div>
+            <div class="file-body">
+              <aside class="file-sidebar">
+                <strong>ファイルとフォルダーのタスク</strong>
+                <button type="button" class="sidebar-action">このフォルダーを共有する</button>
+                <button type="button" class="sidebar-action">新しいフォルダーを作成する</button>
+                <hr />
+                <strong>その他の場所</strong>
+                <span class="sidebar-place">マイ コンピュータ</span>
+                <span class="sidebar-place">マイ ネットワーク</span>
+              </aside>
+              <div class="file-content">
+                <button class="file-item" type="button" aria-label="クラス裏会議.pngを開く">
+                  <span class="image-file-icon" aria-hidden="true">
+                    <img src="クラス裏会議.png" alt="" />
+                  </span>
+                  <span>クラス裏会議.png</span>
+                </button>
+              </div>
+            </div>
+            <footer class="file-status">1 個のオブジェクト　　　　　　　　　　　　PNG イメージ</footer>
+          </section>
+
+          <section class="image-window" aria-hidden="true" aria-labelledby="image-title">
+            <header class="window-titlebar">
+              <span id="image-title">クラス裏会議.png - 画像と FAX ビューア</span>
+              <div class="window-controls"><button type="button" aria-label="閉じる">×</button></div>
+            </header>
+            <div class="image-toolbar">←　→　　⊕　⊖　　スライドショー　　印刷</div>
+            <div class="image-canvas"><img src="クラス裏会議.png" alt="クラス裏会議.png" /></div>
+            <footer class="file-status">クラス裏会議.png　|　PNG イメージ</footer>
+          </section>
+        </div>
+      </div>
+      <div class="monitor-stand" aria-hidden="true"></div>
+      <p class="computer-label" aria-hidden="true">HOKUO COMPUTER SYSTEM　MODEL 1995</p>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
